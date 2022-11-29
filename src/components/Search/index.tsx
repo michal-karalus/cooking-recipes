@@ -15,6 +15,7 @@ function Search() {
   return (
     <div className={styles.container}>
       <form onSubmit={handleSubmit} className={styles.form}>
+        <h2 className={styles.heading}>What would you eat?</h2>
         <input ref={inputRef} type="text" className={styles.input} />
         <button type="submit" className={styles.button}>
           Search
