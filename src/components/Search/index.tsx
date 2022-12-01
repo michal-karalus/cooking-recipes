@@ -1,6 +1,8 @@
 import React, { useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
 
+import Button from 'components/common/Button'
+
 import styles from './Search.module.scss'
 
 function Search() {
@@ -17,9 +19,7 @@ function Search() {
       <form onSubmit={handleSubmit} className={styles.form}>
         <h2 className={styles.heading}>What would you eat?</h2>
         <input ref={inputRef} type="text" className={styles.input} />
-        <button type="submit" className={styles.button}>
-          Search
-        </button>
+        <Button>Search</Button>
       </form>
     </div>
   )
