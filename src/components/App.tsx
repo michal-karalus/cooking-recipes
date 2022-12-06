@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
 import Recipes from 'components/Recipes'
 import Search from 'components/Search'
-import Header from './Header'
+import Header from 'components/Header'
 
 function App() {
   return (
