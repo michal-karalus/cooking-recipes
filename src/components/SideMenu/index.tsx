@@ -29,12 +29,6 @@ function SideMenu() {
           <Link className={styles.link} to={'/'} onClick={toggleMenu}>
             Home
           </Link>
-          <Link className={styles.link} to={'/'}>
-            Find recipes
-          </Link>
-          <Link className={styles.link} to={'/'}>
-            What's in your fridge
-          </Link>
         </div>
       </nav>
       <div
