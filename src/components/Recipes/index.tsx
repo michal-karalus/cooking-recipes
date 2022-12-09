@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 
-import { fetchRecipes } from 'api'
+import { fetchRecipe, fetchRecipes } from 'api'
 import { IRecipe } from 'types'
 import Button from 'components/common/Button'
 
@@ -30,8 +30,7 @@ function Recipes() {
                 alt={recipe.title}
               />
               <h2 className={styles.title}>{recipe.title}</h2>
-              {/* TODO: link redirects to details of a recipe */}
-              <Link to={'/'} className={styles.link}>
+              <Link to={`/recipes/${recipe.id}`} className={styles.link}>
                 <Button>View details</Button>
               </Link>
             </li>
