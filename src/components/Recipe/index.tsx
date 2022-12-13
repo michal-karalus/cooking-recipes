@@ -35,7 +35,7 @@ function Recipe() {
               <h3>Ingredients</h3>
               <ul>
                 {recipe.extendedIngredients.map((item: any) => {
-                  return <li key={item.id}>{item.original}</li>
+                  return <li key={item.original}>{item.original}</li>
                 })}
               </ul>
             </div>
