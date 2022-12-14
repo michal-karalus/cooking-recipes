@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 
 import { fetchRecipes } from 'api'
 import { IRecipe } from 'types'
@@ -10,13 +10,16 @@ import styles from './Recipes.module.scss'
 function Recipes() {
   const [recipes, setRecipes] = useState<Array<IRecipe>>([])
   const location = useLocation()
-  const query = location.state.query
+  const navigate = useNavigate()
+  const query = location.state?.query
 
   useEffect(() => {
+    if (!query) return navigate('/')
+
     fetchRecipes(query).then((response) => {
       setRecipes(response.data.results)
     })
-  }, [query])
+  }, [query, navigate])
 
   return (
     <div className={styles.container}>
