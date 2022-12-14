@@ -8,7 +8,7 @@ import Button from 'components/common/Button'
 import styles from './Recipes.module.scss'
 
 function Recipes() {
-  const [recipes, setRecipes] = useState([])
+  const [recipes, setRecipes] = useState<Array<IRecipe>>([])
   const location = useLocation()
   const query = location.state.query
 
