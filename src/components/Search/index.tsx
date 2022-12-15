@@ -1,24 +1,36 @@
-import React, { useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { useForm, SubmitHandler } from 'react-hook-form'
 
 import Button from 'components/common/Button'
 
 import styles from './Search.module.scss'
 
-function Search() {
-  const inputRef = useRef() as React.MutableRefObject<HTMLInputElement>
-  const navigate = useNavigate()
+type FormValues = {
+  query: string
+}
 
-  const handleSubmit = (e: React.SyntheticEvent) => {
-    e.preventDefault()
-    navigate('/recipes', { state: { query: inputRef.current.value } })
+function Search() {
+  const navigate = useNavigate()
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<FormValues>()
+
+  const onSubmit: SubmitHandler<FormValues> = (data) => {
+    navigate('/recipes', { state: { query: data.query } })
   }
 
   return (
     <div className={styles.container}>
-      <form onSubmit={handleSubmit} className={styles.form}>
+      <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
         <h2 className={styles.heading}>What would you eat?</h2>
-        <input ref={inputRef} type="text" className={styles.input} />
+        <input
+          type="text"
+          className={styles.input}
+          {...register('query', { required: 'This field is required' })}
+        />
+        {errors.query && <p className={styles.error}>{errors.query.message}</p>}
         <Button>Search</Button>
       </form>
     </div>
