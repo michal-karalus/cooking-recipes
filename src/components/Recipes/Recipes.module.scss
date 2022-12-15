@@ -27,14 +27,12 @@
 
 .title {
   font-size: 20px;
-  margin-bottom: 12px;
-  margin-top: 0;
+  margin: 0 0 12px 0;
 }
 
 .link {
   align-self: end;
-  margin-right: 12px;
-  margin-bottom: 12px;
+  margin: 0 12px 12px 0;
 }
 
 @media screen and (min-width: 768px) {
