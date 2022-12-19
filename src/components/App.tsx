@@ -4,6 +4,7 @@ import Recipes from 'components/Recipes'
 import Search from 'components/Search'
 import Header from 'components/Header'
 import SideMenu from 'components/SideMenu'
+import Footer from 'components/Footer'
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="/" element={<Search />} />
         <Route path="/recipes" element={<Recipes />} />
       </Routes>
+      <Footer />
     </Router>
   )
 }
