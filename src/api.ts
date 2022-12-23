@@ -6,6 +6,6 @@ axios.defaults.params = {
   apiKey: API_KEY,
 }
 
-export const fetchRecipes = (query: string) => {
-  return axios.get(`${API_URL}/recipes/complexSearch?query=${query}`)
+export const fetchRecipes = (recipeName: string) => {
+  return axios.get(`${API_URL}/recipes/complexSearch?query=${recipeName}`)
 }

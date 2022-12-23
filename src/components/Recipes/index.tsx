@@ -14,16 +14,16 @@ function Recipes() {
   const [isLoading, setIsLoading] = useState<Boolean>(true)
   const location = useLocation()
   const navigate = useNavigate()
-  const query = location.state?.query
+  const recipeName = location.state?.recipeName
 
   useEffect(() => {
-    if (!query) return navigate('/')
+    if (!recipeName) return navigate('/')
 
-    fetchRecipes(query).then((response) => {
+    fetchRecipes(recipeName).then((response) => {
       setRecipes(response.data.results)
       setIsLoading(false)
     })
-  }, [query, navigate])
+  }, [recipeName, navigate])
 
   return (
     <div className={styles.container}>

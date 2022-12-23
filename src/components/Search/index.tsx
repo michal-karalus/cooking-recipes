@@ -6,7 +6,7 @@ import Button from 'components/common/Button'
 import styles from './Search.module.scss'
 
 type FormValues = {
-  query: string
+  recipeName: string
 }
 
 function Search() {
@@ -18,7 +18,7 @@ function Search() {
   } = useForm<FormValues>()
 
   const onSubmit: SubmitHandler<FormValues> = (data) => {
-    navigate('/recipes', { state: { query: data.query } })
+    navigate('/recipes', { state: { recipeName: data.recipeName } })
   }
 
   return (
@@ -28,9 +28,11 @@ function Search() {
         <input
           type="text"
           className={styles.input}
-          {...register('query', { required: 'This field is required' })}
+          {...register('recipeName', { required: 'This field is required' })}
         />
-        {errors.query && <p className={styles.error}>{errors.query.message}</p>}
+        {errors.recipeName && (
+          <p className={styles.error}>{errors.recipeName.message}</p>
+        )}
         <Button>Search</Button>
       </form>
     </div>
