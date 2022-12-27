@@ -3,11 +3,11 @@ import React from 'react'
 import styles from './Button.module.scss'
 
 type Props = {
-  children: string
+  children: React.ReactNode
   onClick?: () => void
 }
 
-function Button({ children, onClick }: React.PropsWithChildren<Props>) {
+const Button: React.FC<Props> = ({ children, onClick }) => {
   return (
     <button className={styles.button} onClick={onClick}>
       {children}
