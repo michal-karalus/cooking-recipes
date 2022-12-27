@@ -2,7 +2,7 @@ import React from 'react'
 
 import styles from './Button.module.scss'
 
-interface Props {
+type Props = {
   children: string
   onClick?: () => void
 }
