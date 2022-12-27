@@ -23,7 +23,7 @@ function Search() {
 
   return (
     <div className={styles.container}>
-      <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
+      <form className={styles.form}>
         <h2 className={styles.heading}>What would you eat?</h2>
         <input
           type="text"
@@ -33,7 +33,7 @@ function Search() {
         {errors.recipeName && (
           <p className={styles.error}>{errors.recipeName.message}</p>
         )}
-        <Button>Search</Button>
+        <Button onClick={handleSubmit(onSubmit)}>Search</Button>
       </form>
     </div>
   )
