@@ -15,6 +15,7 @@ function Recipes() {
   const location = useLocation()
   const navigate = useNavigate()
   const recipeName = location.state?.recipeName
+  const isLoaded = recipes.length > 0
 
   useEffect(() => {
     if (!recipeName) return navigate('/')
@@ -28,22 +29,24 @@ function Recipes() {
   return (
     <div className={styles.container}>
       {isLoading && createPortal(<Loader />, document.body)}
-      <ul className={styles.items}>
-        {recipes.map((recipe: IRecipe) => (
-          <li className={styles.item} key={recipe.id}>
-            <img
-              className={styles.photo}
-              src={recipe.image}
-              alt={recipe.title}
-            />
-            <h2 className={styles.title}>{recipe.title}</h2>
-            {/* TODO: link redirects to details of a recipe */}
-            <Link to={'/'} className={styles.link}>
-              <Button>View details</Button>
-            </Link>
-          </li>
-        ))}
-      </ul>
+      {isLoaded && (
+        <ul className={styles.items}>
+          {recipes.map((recipe: IRecipe) => (
+            <li className={styles.item} key={recipe.id}>
+              <img
+                className={styles.photo}
+                src={recipe.image}
+                alt={recipe.title}
+              />
+              <h2 className={styles.title}>{recipe.title}</h2>
+              {/* TODO: link redirects to details of a recipe */}
+              <Link to="/" className={styles.link}>
+                <Button>View details</Button>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
   )
 }
