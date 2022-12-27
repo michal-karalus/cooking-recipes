@@ -8,6 +8,7 @@ import Button from 'components/common/Button'
 import Loader from 'components/common/Loader'
 
 import styles from './Recipes.module.scss'
+import RecipeNotFound from './RecipeNotFound'
 
 function Recipes() {
   const [recipes, setRecipes] = useState<Array<IRecipe>>([])
@@ -16,10 +17,9 @@ function Recipes() {
   const navigate = useNavigate()
   const recipeName = location.state?.recipeName
   const isLoaded = recipes.length > 0
+  const isRecipesListEmpty = recipes.length === 0
 
   useEffect(() => {
-    if (!recipeName) return navigate('/')
-
     fetchRecipes(recipeName).then((response) => {
       setRecipes(response.data.results)
       setIsLoading(false)
@@ -47,6 +47,7 @@ function Recipes() {
           ))}
         </ul>
       )}
+      {!isLoading && isRecipesListEmpty && <RecipeNotFound />}
     </div>
   )
 }
