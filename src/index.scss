@@ -1,5 +1,28 @@
 @import-normalize;
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+:root {
+  --black: #000;
+  --black-20: rgba(0, 0, 0, 0.2);
+  --white: #fff;
+  --primary: #68b984;
+  --error: #ff3333;
+  --input-border: #ccc;
+}
+
+html {
+  font-family: 'Roboto', sans-serif;
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
 
 body {
   margin: 0;
+  background-color: var(--white);
+  color: var(--black);
 }

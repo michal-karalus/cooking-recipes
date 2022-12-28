@@ -1,0 +1,42 @@
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 48px;
+}
+
+.items {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 36px 24px;
+}
+
+.item {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+.photo {
+  width: 100%;
+  height: auto;
+  margin-bottom: 12px;
+}
+
+.title {
+  font-size: 20px;
+  margin: 0 0 12px 0;
+}
+
+.link {
+  align-self: end;
+  margin: 0 12px 12px 0;
+}
+
+@media screen and (min-width: 768px) {
+  .items {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
