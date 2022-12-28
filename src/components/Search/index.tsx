@@ -17,8 +17,8 @@ function Search() {
     formState: { errors },
   } = useForm<FormValues>()
 
-  const onSubmit: SubmitHandler<FormValues> = (data) => {
-    navigate('/recipes', { state: { recipeName: data.recipeName } })
+  const onSubmit: SubmitHandler<FormValues> = (formData) => {
+    navigate('/recipes', { state: { recipeName: formData.recipeName } })
   }
 
   return (
