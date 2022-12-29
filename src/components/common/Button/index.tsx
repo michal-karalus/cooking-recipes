@@ -2,12 +2,17 @@ import React from 'react'
 
 import styles from './Button.module.scss'
 
-interface Props {
-  children: string
+type Props = {
+  children: React.ReactNode
+  onClick?: () => void
 }
 
-function Button({ children }: React.PropsWithChildren<Props>) {
-  return <button className={styles.button}>{children}</button>
+const Button: React.FC<Props> = ({ children, onClick }) => {
+  return (
+    <button className={styles.button} onClick={onClick}>
+      {children}
+    </button>
+  )
 }
 
 export default Button

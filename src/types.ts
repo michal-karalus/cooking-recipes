@@ -1,4 +1,4 @@
-export interface IRecipe {
+export type IRecipe = {
   id: string
   title: string
   image: string

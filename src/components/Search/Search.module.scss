@@ -11,11 +11,11 @@
   background-color: var(--white);
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
   border-radius: 12px;
+  width: 400px;
 }
 
 .heading {
-  margin-top: 0;
-  margin-bottom: 24px;
+  margin: 0 0 24px;
   font-weight: normal;
   color: var(--black);
 }
@@ -25,6 +25,12 @@
   font-size: 16px;
   padding: 12px 18px;
   margin-bottom: 12px;
-  border: 1px solid #ccc;
+  border: 1px solid var(--input-border);
   box-sizing: border-box;
+}
+
+.error {
+  margin: 0 0 12px;
+  color: var(--error);
+  font-weight: bold;
 }
