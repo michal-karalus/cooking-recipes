@@ -1,8 +1,7 @@
 .container {
   max-width: 800px;
   margin: 0 auto;
-  padding: 16px 48px;
-  min-height: calc(100vh - var(--header-height) - var(--footer-height));
+  padding: 16px 48px 80px;
 }
 
 .items {

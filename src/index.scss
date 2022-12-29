@@ -29,4 +29,6 @@ body {
   margin: 0;
   background-color: var(--white);
   color: var(--black);
+  position: relative;
+  min-height: 100vh;
 }

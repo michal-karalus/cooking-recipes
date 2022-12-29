@@ -1,4 +1,7 @@
 .footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
   background-color: var(--footer-background);
   height: var(--footer-height);
   display: flex;
