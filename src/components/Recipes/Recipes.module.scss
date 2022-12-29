@@ -2,6 +2,7 @@
   max-width: 800px;
   margin: 0 auto;
   padding: 0 48px;
+  min-height: calc(100vh - var(--header-height) - var(--footer-height));
 }
 
 .items {
