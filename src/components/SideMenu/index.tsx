@@ -26,7 +26,7 @@ function SideMenu() {
       </button>
       <nav className={classnames(styles.menu, isOpen ? styles.menuActive : '')}>
         <div className={styles.menuWrapper}>
-          <Link className={styles.link} to={'/'} onClick={toggleMenu}>
+          <Link className={styles.link} to="/" onClick={toggleMenu}>
             Home
           </Link>
         </div>
