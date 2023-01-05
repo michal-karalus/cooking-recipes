@@ -6,6 +6,7 @@ function Footer() {
       <div className={styles.wrapper}>
         <span>Application is using </span>
         <a
+          className={styles.link}
           href="https://spoonacular.com/food-api/"
           target="_blank"
           rel="noopener noreferrer"
