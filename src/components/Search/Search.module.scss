@@ -1,8 +1,8 @@
 .container {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .form {
@@ -11,6 +11,7 @@
   background-color: var(--white);
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
   border-radius: 12px;
+  width: 400px;
 }
 
 .heading {
