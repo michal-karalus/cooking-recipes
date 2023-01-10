@@ -1,0 +1,19 @@
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: var(--footer-background);
+  height: var(--footer-height);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.wrapper {
+  padding: 0 24px;
+
+  .link {
+    color: var(--black);
+  }
+}

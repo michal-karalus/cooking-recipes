@@ -4,10 +4,14 @@
 :root {
   --black: #000;
   --black-20: rgba(0, 0, 0, 0.2);
+  --black-60: rgba(0, 0, 0, 0.6);
   --white: #fff;
+  --footer-background: #f2f2f2;
   --primary: #68b984;
   --error: #ff3333;
   --input-border: #ccc;
+  --header-height: 72px;
+  --footer-height: 60px;
 }
 
 html {
@@ -25,4 +29,5 @@ body {
   margin: 0;
   background-color: var(--white);
   color: var(--black);
+  position: relative;
 }

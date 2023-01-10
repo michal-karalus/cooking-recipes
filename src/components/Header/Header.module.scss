@@ -1,0 +1,45 @@
+.header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  background-color: var(--primary);
+
+  &__wrapper {
+    max-width: 1024px;
+    margin: 0 auto;
+    padding: 18px 24px;
+    display: flex;
+    align-items: center;
+    height: var(--header-height);
+  }
+}
+
+.logo {
+  text-decoration: none;
+  color: var(--black);
+
+  .heading {
+    margin: 0;
+  }
+}
+
+.navbar {
+  margin-left: 36px;
+  display: none;
+}
+
+.link {
+  text-decoration: none;
+  color: var(--black);
+  font-size: 20px;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .navbar {
+    display: block;
+  }
+}

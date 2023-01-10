@@ -1,0 +1,116 @@
+.hamburger {
+  padding: 12px;
+  position: fixed;
+  top: 12px;
+  right: 12px;
+  background-color: transparent;
+  border: none;
+  z-index: 11;
+}
+
+.hamburgerInner {
+  width: 36px;
+  height: 24px;
+  display: inline-block;
+  position: relative;
+}
+
+@mixin hamburgerLine {
+  width: 100%;
+  height: 3px;
+  background-color: var(--black);
+  position: absolute;
+  transition: transform 0.3s;
+}
+
+.hamburgerBar {
+  @include hamburgerLine;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: background-color 0.2s;
+
+  &:before,
+  &:after {
+    @include hamburgerLine;
+    content: '';
+    left: 0;
+  }
+
+  &:before {
+    top: -10px;
+  }
+
+  &:after {
+    top: 10px;
+  }
+}
+
+.hamburgerActive .hamburgerBar {
+  background-color: transparent;
+
+  &:before {
+    transform: translateY(10px) rotate(-45deg);
+  }
+
+  &:after {
+    transform: translateY(-10px) rotate(45deg);
+  }
+}
+
+.hamburger,
+.menu {
+  transition: transform 0.3s;
+}
+
+.menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 250px;
+  transform: translateX(250px);
+  background-color: var(--white);
+  z-index: 10;
+}
+
+.menuWrapper {
+  margin-top: 60px;
+}
+
+.menuActive {
+  transform: translateX(0);
+}
+
+.link {
+  text-decoration: none;
+  color: var(--black);
+  font-size: 1.25rem;
+  margin: 16px;
+  display: block;
+}
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 5;
+  display: none;
+  opacity: 0;
+  background-color: var(--black-60);
+}
+
+.backdropActive {
+  opacity: 1;
+  display: block;
+}
+
+@media screen and (min-width: 768px) {
+  .hamburger,
+  .menu,
+  .backdrop {
+    display: none;
+  }
+}
