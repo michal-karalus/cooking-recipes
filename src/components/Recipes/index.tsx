@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { createPortal } from 'react-dom'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 
-import { fetchRecipe, fetchRecipes } from 'api'
+import { fetchRecipes } from 'api'
 import { IRecipe } from 'types'
 import Button from 'components/common/Button'
 import Loader from 'components/common/Loader'
@@ -39,8 +39,7 @@ function Recipes() {
                 alt={recipe.title}
               />
               <h2 className={styles.title}>{recipe.title}</h2>
-              {/* TODO: link redirects to details of a recipe */}
-              <Link to="/" className={styles.link}>
+              <Link to={`/recipes/${recipe.id}`} className={styles.link}>
                 <Button>View details</Button>
               </Link>
             </li>

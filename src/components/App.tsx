@@ -7,6 +7,7 @@ import Footer from 'components/Footer'
 
 const Search = lazy(() => import('components/Search'))
 const Recipes = lazy(() => import('components/Recipes'))
+const Recipe = lazy(() => import('components/Recipe'))
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Search />} />
           <Route path="/recipes" element={<Recipes />} />
+          <Route path="/recipes/:id" element={<Recipe />} />
         </Routes>
       </Suspense>
       <Footer />
