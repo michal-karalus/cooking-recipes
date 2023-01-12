@@ -6,11 +6,11 @@ function Header() {
   return (
     <header className={styles.header}>
       <div className={styles.header__wrapper}>
-        <Link className={styles.logo} to={'/'}>
-          <h1>Recipes</h1>
+        <Link className={styles.logo} to="/">
+          <h1 className={styles.heading}>Recipes</h1>
         </Link>
         <nav className={styles.navbar}>
-          <Link className={styles.link} to={'/'}>
+          <Link className={styles.link} to="/">
             Home
           </Link>
         </nav>

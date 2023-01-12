@@ -8,7 +8,7 @@ function SideMenu() {
   const [isOpen, setIsOpen] = useState(false)
 
   const toggleMenu = () => {
-    setIsOpen((current) => !current)
+    setIsOpen(!isOpen)
   }
 
   return (
@@ -16,7 +16,7 @@ function SideMenu() {
       <button
         className={classnames(
           styles.hamburger,
-          isOpen ? styles.hamburgerActive : ''
+          isOpen && styles.hamburgerActive
         )}
         onClick={toggleMenu}
       >
@@ -26,16 +26,13 @@ function SideMenu() {
       </button>
       <nav className={classnames(styles.menu, isOpen ? styles.menuActive : '')}>
         <div className={styles.menuWrapper}>
-          <Link className={styles.link} to={'/'} onClick={toggleMenu}>
+          <Link className={styles.link} to="/" onClick={toggleMenu}>
             Home
           </Link>
         </div>
       </nav>
       <div
-        className={classnames(
-          styles.backdrop,
-          isOpen ? styles.backdropActive : ''
-        )}
+        className={classnames(styles.backdrop, isOpen && styles.backdropActive)}
       ></div>
     </>
   )

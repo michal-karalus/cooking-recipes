@@ -1,7 +1,8 @@
 .header {
-  position: sticky;
+  position: fixed;
+  width: 100%;
   top: 0;
-  background-color: var(--green);
+  background-color: var(--primary);
 
   &__wrapper {
     max-width: 1024px;
@@ -17,7 +18,7 @@
   text-decoration: none;
   color: var(--black);
 
-  h1 {
+  .heading {
     margin: 0;
   }
 }
