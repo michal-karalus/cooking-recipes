@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
+import { createPortal } from 'react-dom'
 
 import { fetchRecipe } from 'api'
+import Loader from 'components/common/Loader'
 
 import styles from './Recipe.module.scss'
 
@@ -17,15 +19,18 @@ function Recipe() {
   const { id } = useParams()
 
   const [recipe, setRecipe] = useState<IRecipeDetails>()
+  const [isLoading, setIsLoading] = useState<boolean>(true)
 
   useEffect(() => {
     fetchRecipe(id!).then((response) => {
       setRecipe(response.data)
+      setIsLoading(false)
     })
   }, [id])
 
   return (
     <article>
+      {isLoading && createPortal(<Loader />, document.body)}
       {recipe && (
         <div className="container">
           <h2 className={styles.title}>{recipe.title}</h2>
