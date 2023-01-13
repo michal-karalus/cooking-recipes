@@ -32,23 +32,34 @@ function Recipe() {
     <article>
       {isLoading && createPortal(<Loader />, document.body)}
       {recipe && (
-        <div className="container">
+        <div className={styles.container}>
           <h2 className={styles.title}>{recipe.title}</h2>
           <img className={styles.photo} src={recipe.image} alt="" />
-          <div className="row">
+          <div className={styles.details}>
             <div className={styles.ingredients}>
-              <h3>Ingredients</h3>
-              <ul>
+              <h3 className={styles.ingredients__title}>Ingredients</h3>
+              <ul className={styles.ingredients__list}>
                 {recipe.extendedIngredients.map((item: any) => {
-                  return <li key={item.original}>{item.original}</li>
+                  return (
+                    <li
+                      className={styles.ingredients__item}
+                      key={item.original}
+                    >
+                      {item.original}
+                    </li>
+                  )
                 })}
               </ul>
             </div>
             <div className={styles.steps}>
-              <h3>Steps</h3>
-              <ol>
+              <h3 className={styles.steps__title}>Steps</h3>
+              <ol className={styles.steps__list}>
                 {recipe.analyzedInstructions[0].steps.map((step: any) => {
-                  return <li key={step.number}>{step.step}</li>
+                  return (
+                    <li className={styles.steps__item} key={step.number}>
+                      {step.step}
+                    </li>
+                  )
                 })}
               </ol>
             </div>

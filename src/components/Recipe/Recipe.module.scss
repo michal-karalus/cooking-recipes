@@ -1,40 +1,53 @@
+.container {
+  min-height: 100vh;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 80px 48px;
+}
+
 .photo {
   width: 100%;
 }
 
+.details {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .ingredients {
   flex: 1;
-  h3 {
+
+  &__title {
     text-transform: uppercase;
     font-weight: normal;
   }
 
-  ul {
+  &__list {
     list-style-type: none;
     padding: 0;
+  }
 
-    li {
-      margin-bottom: 12px;
-      padding-bottom: 6px;
-      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-    }
+  &__item {
+    margin-bottom: 12px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--black-20);
   }
 }
 
 .steps {
-  h3 {
+  &__title {
     text-transform: uppercase;
     font-weight: normal;
   }
 
-  ol {
+  &__list {
     list-style: none;
     padding: 0;
     counter-reset: steps;
+  }
 
-    li {
-      margin-bottom: 12px;
-    }
+  &__item {
+    margin-bottom: 12px;
   }
 }
 
