@@ -4,21 +4,14 @@ import { createPortal } from 'react-dom'
 
 import { fetchRecipe } from 'api'
 import Loader from 'components/common/Loader'
+import { Ingredient, RecipeDetails, Step } from 'types'
 
 import styles from './Recipe.module.scss'
-
-interface IRecipeDetails {
-  id: string
-  title: string
-  image: string
-  analyzedInstructions: any
-  extendedIngredients: any
-}
 
 function Recipe() {
   const { id } = useParams()
 
-  const [recipe, setRecipe] = useState<IRecipeDetails>()
+  const [recipe, setRecipe] = useState<RecipeDetails>()
   const [isLoading, setIsLoading] = useState<boolean>(true)
 
   useEffect(() => {
@@ -29,7 +22,7 @@ function Recipe() {
   }, [id])
 
   return (
-    <article>
+    <>
       {isLoading && createPortal(<Loader />, document.body)}
       {recipe && (
         <div className={styles.container}>
@@ -39,13 +32,13 @@ function Recipe() {
             <div className={styles.ingredients}>
               <h3 className={styles.ingredients__title}>Ingredients</h3>
               <ul className={styles.ingredients__list}>
-                {recipe.extendedIngredients.map((item: any) => {
+                {recipe.extendedIngredients.map((ingredient: Ingredient) => {
                   return (
                     <li
                       className={styles.ingredients__item}
-                      key={item.original}
+                      key={ingredient.original}
                     >
-                      {item.original}
+                      {ingredient.original}
                     </li>
                   )
                 })}
@@ -54,7 +47,7 @@ function Recipe() {
             <div className={styles.steps}>
               <h3 className={styles.steps__title}>Steps</h3>
               <ol className={styles.steps__list}>
-                {recipe.analyzedInstructions[0].steps.map((step: any) => {
+                {recipe.analyzedInstructions[0].steps.map((step: Step) => {
                   return (
                     <li className={styles.steps__item} key={step.number}>
                       {step.step}
@@ -66,7 +59,7 @@ function Recipe() {
           </div>
         </div>
       )}
-    </article>
+    </>
   )
 }
 
