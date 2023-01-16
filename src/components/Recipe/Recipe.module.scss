@@ -41,13 +41,11 @@
   }
 
   &__list {
-    list-style: none;
-    padding: 0;
-    counter-reset: steps;
+    padding-left: 24px;
   }
 
   &__item {
-    margin-bottom: 12px;
+    margin-bottom: 18px;
   }
 }
 
