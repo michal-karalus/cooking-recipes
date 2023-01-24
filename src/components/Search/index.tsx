@@ -31,7 +31,9 @@ function Search() {
           {...register('recipeName', { required: 'This field is required' })}
         />
         {errors.recipeName && (
-          <p className={styles.error}>{errors.recipeName.message}</p>
+          <p className={styles.error} data-testid="error">
+            {errors.recipeName.message}
+          </p>
         )}
         <Button onClick={handleSubmit(onSubmit)}>Search</Button>
       </form>
