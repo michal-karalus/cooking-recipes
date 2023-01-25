@@ -6,8 +6,8 @@ import Search from '.'
 
 it('should display empty field error message', async () => {
   render(<Search />, { wrapper: Router })
-  const button = await screen.findByText('Search')
+  const button = screen.getByRole('button', { name: /search/i })
   userEvent.click(button)
-  const error = await screen.findByTestId('error')
+  const error = await screen.findByRole('alert')
   expect(error).toHaveTextContent('This field is required')
 })

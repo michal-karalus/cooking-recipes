@@ -31,7 +31,7 @@ function Search() {
           {...register('recipeName', { required: 'This field is required' })}
         />
         {errors.recipeName && (
-          <p className={styles.error} data-testid="error">
+          <p className={styles.error} role="alert">
             {errors.recipeName.message}
           </p>
         )}
