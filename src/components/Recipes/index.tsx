@@ -32,7 +32,7 @@ function Recipes() {
       {isLoaded && (
         <ul className={styles.items}>
           {recipes.map((recipe: Recipe) => (
-            <li className={styles.item} key={recipe.id}>
+            <li className={styles.item} key={recipe.id} data-testid="recipe">
               <img
                 className={styles.photo}
                 src={recipe.image}
