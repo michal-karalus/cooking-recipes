@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { createPortal } from 'react-dom'
 
 import { fetchRecipe } from 'api'
 import Loader from 'components/common/Loader'
@@ -23,7 +22,7 @@ function Recipe() {
 
   return (
     <>
-      {isLoading && createPortal(<Loader />, document.body)}
+      {isLoading && <Loader />}
       {recipe && (
         <div className={styles.container}>
           <h2 className={styles.title}>{recipe.title}</h2>

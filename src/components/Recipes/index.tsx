@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react'
-import { createPortal } from 'react-dom'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 
 import { fetchRecipes } from 'api'
@@ -28,7 +27,7 @@ function Recipes() {
 
   return (
     <div className={styles.container}>
-      {isLoading && createPortal(<Loader />, document.body)}
+      {isLoading && <Loader />}
       {isLoaded && (
         <ul className={styles.items}>
           {recipes.map((recipe: Recipe) => (

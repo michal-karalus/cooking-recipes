@@ -1,10 +1,13 @@
+import { createPortal } from 'react-dom'
+
 import styles from './Loader.module.scss'
 
 function Loader() {
-  return (
+  return createPortal(
     <div className={styles.backdrop}>
       <div className={styles.loader}></div>
-    </div>
+    </div>,
+    document.body
   )
 }
 
