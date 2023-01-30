@@ -26,7 +26,7 @@ function Recipe() {
       {recipe && (
         <div className={styles.container}>
           <h2 className={styles.title}>{recipe.title}</h2>
-          <img className={styles.photo} src={recipe.image} alt="" />
+          <img className={styles.photo} src={recipe.image} alt={recipe.title} />
           <div className={styles.details}>
             <div className={styles.ingredients}>
               <h3 className={styles.ingredients__title}>Ingredients</h3>
