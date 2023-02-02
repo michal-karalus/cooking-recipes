@@ -10,13 +10,8 @@ import styles from './Recipe.module.scss'
 function Recipe() {
   const { id } = useParams()
 
-  const { data, isLoading } = useQuery(
-    'recipe',
-    () => fetchRecipe(id!).then((response) => response.data),
-    {
-      cacheTime: 0,
-      staleTime: 0,
-    }
+  const { data, isLoading } = useQuery(['recipe', id], () =>
+    fetchRecipe(id!).then((response) => response.data)
   )
 
   return (
