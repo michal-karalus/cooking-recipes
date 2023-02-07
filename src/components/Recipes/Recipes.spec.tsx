@@ -1,5 +1,4 @@
 import { render, screen } from '@testing-library/react'
-import { act } from 'react-dom/test-utils'
 import { BrowserRouter as Router } from 'react-router-dom'
 
 import { fetchRecipes } from 'api'
@@ -28,13 +27,11 @@ const recipes = {
 }
 
 beforeEach(() => {
-  fetchRecipes.mockResolvedValue(recipes)
+  ;(fetchRecipes as jest.Mock).mockResolvedValue(recipes)
 })
 
 it('should render list of recipes', async () => {
-  await act(async () => {
-    render(<Recipes />, { wrapper: Router })
-  })
+  render(<Recipes />, { wrapper: Router })
   const recipes = await screen.findAllByTestId('recipe')
   expect(recipes).toHaveLength(2)
   expect(fetchRecipes).toBeCalledTimes(1)
