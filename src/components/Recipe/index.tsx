@@ -8,10 +8,10 @@ import { Ingredient, Step } from 'types'
 import styles from './Recipe.module.scss'
 
 function Recipe() {
-  const { id } = useParams()
+  const { id } = useParams<{ id: string }>()
 
   const { data, isLoading } = useQuery(['recipe', id], () =>
-    fetchRecipe(id!).then((response) => response.data)
+    fetchRecipe(id).then((response) => response.data)
   )
 
   return (
