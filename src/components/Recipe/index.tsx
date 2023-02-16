@@ -3,14 +3,14 @@ import { useQuery } from 'react-query'
 
 import { fetchRecipe } from 'api'
 import Loader from 'components/common/Loader'
-import { Ingredient, Step } from 'types'
+import { Ingredient, Step, RecipeDetails } from 'types'
 
 import styles from './Recipe.module.scss'
 
 function Recipe() {
   const { id } = useParams<{ id: string }>()
 
-  const { data, isLoading } = useQuery(['recipe', id], () =>
+  const { data, isLoading } = useQuery<RecipeDetails>(['recipe', id], () =>
     fetchRecipe(id).then((response) => response.data)
   )
 
