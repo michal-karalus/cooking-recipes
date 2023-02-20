@@ -25,14 +25,16 @@
     "cypress": "^12.5.1",
     "husky": "^4.3.8",
     "lint-staged": "^13.0.3",
-    "prettier": "^2.7.1"
+    "prettier": "^2.7.1",
+    "start-server-and-test": "^1.15.4"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --transformIgnorePatterns \"node_modules/(?!axios)/\"",
-    "test:e2e": "cypress run",
+    "test:e2e": "cypress run --browser=chrome",
     "test:e2e:debug": "cypress open",
+    "ci": "BROWSER=none start-server-and-test start http://localhost:3000 test:e2e",
     "eject": "react-scripts eject"
   },
   "lint-staged": {
