@@ -5,7 +5,7 @@ import styles from './RecipeNotFound.module.scss'
 function RecipeNotFound() {
   return (
     <div className={styles.container}>
-      <p className={styles.heading}>
+      <p className={styles.heading} data-testid="recipeNotFound">
         We couldn't find recipes for provided criteria.
       </p>
       <Link to="/" className={styles.link}>
