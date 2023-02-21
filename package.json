@@ -23,6 +23,7 @@
   "devDependencies": {
     "@testing-library/cypress": "^9.0.0",
     "cypress": "^12.5.1",
+    "cypress-mochawesome-reporter": "^3.3.0",
     "husky": "^4.3.8",
     "lint-staged": "^13.0.3",
     "prettier": "^2.7.1",
