@@ -10,6 +10,6 @@ export const fetchRecipes = (recipeName: string) => {
   return axios.get(`${API_URL}/recipes/complexSearch?query=${recipeName}`)
 }
 
-export const fetchRecipe = (id: string) => {
+export const fetchRecipe = (id: string | undefined) => {
   return axios.get(`${API_URL}/recipes/${id}/information`)
 }
