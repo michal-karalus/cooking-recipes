@@ -30,6 +30,7 @@ function Recipe() {
                     <li
                       className={styles.ingredients__item}
                       key={ingredient.original}
+                      data-testid="ingredient"
                     >
                       {ingredient.original}
                     </li>
@@ -42,7 +43,11 @@ function Recipe() {
               <ol className={styles.steps__list}>
                 {data.analyzedInstructions[0].steps.map((step: Step) => {
                   return (
-                    <li className={styles.steps__item} key={step.number}>
+                    <li
+                      className={styles.steps__item}
+                      key={step.number}
+                      data-testid="step"
+                    >
                       {step.step}
                     </li>
                   )
