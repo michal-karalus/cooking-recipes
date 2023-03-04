@@ -6,7 +6,14 @@ import Header from 'components/Header'
 import SideMenu from 'components/SideMenu'
 import Footer from 'components/Footer'
 
-const queryClient = new QueryClient()
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: Infinity,
+      cacheTime: Infinity,
+    },
+  },
+})
 
 const Search = lazy(() => import('components/Search'))
 const Recipes = lazy(() => import('components/Recipes'))
