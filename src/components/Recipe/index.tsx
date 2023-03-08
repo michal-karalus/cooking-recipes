@@ -11,7 +11,7 @@ function Recipe() {
   const { id } = useParams<{ id: string }>()
 
   const { data, isLoading } = useQuery<RecipeDetails>(['recipe', id], () =>
-    fetchRecipe(id).then((response) => response.data)
+    fetchRecipe(id as string).then((response) => response.data)
   )
 
   return (
