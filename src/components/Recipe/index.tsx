@@ -8,7 +8,7 @@ import styles from './Recipe.module.scss'
 
 function Recipe() {
   const { id } = useParams<{ id: string }>()
-  const { data, isLoading } = useRecipe(id)
+  const { data, isLoading } = useRecipe(id as string)
 
   return (
     <>
