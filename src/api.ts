@@ -9,3 +9,7 @@ axios.defaults.params = {
 export const fetchRecipes = (recipeName: string) => {
   return axios.get(`${API_URL}/recipes/complexSearch?query=${recipeName}`)
 }
+
+export const fetchRecipe = (id: string) => {
+  return axios.get(`${API_URL}/recipes/${id}/information`)
+}

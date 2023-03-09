@@ -1,9 +1,8 @@
 import { useEffect, useState } from 'react'
-import { createPortal } from 'react-dom'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 
 import { fetchRecipes } from 'api'
-import { IRecipe } from 'types'
+import { Recipe } from 'types'
 import Button from 'components/common/Button'
 import Loader from 'components/common/Loader'
 
@@ -11,7 +10,7 @@ import styles from './Recipes.module.scss'
 import RecipeNotFound from './RecipeNotFound'
 
 function Recipes() {
-  const [recipes, setRecipes] = useState<Array<IRecipe>>([])
+  const [recipes, setRecipes] = useState<Array<Recipe>>([])
   const [isLoading, setIsLoading] = useState<Boolean>(true)
   const location = useLocation()
   const navigate = useNavigate()
@@ -28,10 +27,10 @@ function Recipes() {
 
   return (
     <div className={styles.container}>
-      {isLoading && createPortal(<Loader />, document.body)}
+      {isLoading && <Loader />}
       {isLoaded && (
         <ul className={styles.items}>
-          {recipes.map((recipe: IRecipe) => (
+          {recipes.map((recipe: Recipe) => (
             <li className={styles.item} key={recipe.id}>
               <img
                 className={styles.photo}
@@ -39,8 +38,7 @@ function Recipes() {
                 alt={recipe.title}
               />
               <h2 className={styles.title}>{recipe.title}</h2>
-              {/* TODO: link redirects to details of a recipe */}
-              <Link to="/" className={styles.link}>
+              <Link to={`/recipes/${recipe.id}`} className={styles.link}>
                 <Button>View details</Button>
               </Link>
             </li>
