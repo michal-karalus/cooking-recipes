@@ -1,18 +1,14 @@
 import { useParams } from 'react-router-dom'
-import { useQuery } from 'react-query'
 
-import { fetchRecipe } from 'api'
 import Loader from 'components/common/Loader'
-import { Ingredient, Step, RecipeDetails } from 'types'
+import { Ingredient, Step } from 'types'
+import { useRecipe } from 'hooks'
 
 import styles from './Recipe.module.scss'
 
 function Recipe() {
   const { id } = useParams<{ id: string }>()
-
-  const { data, isLoading } = useQuery<RecipeDetails>(['recipe', id], () =>
-    fetchRecipe(id as string).then((response) => response.data)
-  )
+  const { data, isLoading } = useRecipe(id as string)
 
   return (
     <>
@@ -30,6 +26,7 @@ function Recipe() {
                     <li
                       className={styles.ingredients__item}
                       key={ingredient.original}
+                      data-testid="ingredient"
                     >
                       {ingredient.original}
                     </li>
@@ -42,7 +39,11 @@ function Recipe() {
               <ol className={styles.steps__list}>
                 {data.analyzedInstructions[0].steps.map((step: Step) => {
                   return (
-                    <li className={styles.steps__item} key={step.number}>
+                    <li
+                      className={styles.steps__item}
+                      key={step.number}
+                      data-testid="step"
+                    >
                       {step.step}
                     </li>
                   )

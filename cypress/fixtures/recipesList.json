@@ -1,0 +1,22 @@
+{
+  "results": [
+    {
+      "id": 634202,
+      "title": "Banana Walnut Cake",
+      "image": "https://spoonacular.com/recipeImages/634202-312x231.jpg",
+      "imageType": "jpg"
+    },
+    {
+      "id": 634070,
+      "title": "Banana Creme Brulee",
+      "image": "https://spoonacular.com/recipeImages/634070-312x231.jpg",
+      "imageType": "jpg"
+    },
+    {
+      "id": 634171,
+      "title": "Banana Pudding Cake",
+      "image": "https://spoonacular.com/recipeImages/634171-312x231.jpg",
+      "imageType": "jpg"
+    }
+  ]
+}

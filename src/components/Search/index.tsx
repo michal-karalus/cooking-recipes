@@ -25,13 +25,19 @@ function Search() {
     <div className={styles.container}>
       <form className={styles.form}>
         <h2 className={styles.heading}>What would you eat?</h2>
+        <label htmlFor="recipeName" className={styles.recipeNameLabel}>
+          Name
+        </label>
         <input
           type="text"
+          id="recipeName"
           className={styles.input}
           {...register('recipeName', { required: 'This field is required' })}
         />
         {errors.recipeName && (
-          <p className={styles.error}>{errors.recipeName.message}</p>
+          <p className={styles.error} role="alert">
+            {errors.recipeName.message}
+          </p>
         )}
         <Button onClick={handleSubmit(onSubmit)}>Search</Button>
       </form>
